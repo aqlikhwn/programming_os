@@ -1,0 +1,58 @@
+﻿============================================
+   CLASS SCHEDULING USING CPU ALGORITHMS
+============================================
+
+Input Courses:
+
++------------+----------+----------+--------------+
+| Course Code| Duration | Priority | Arrival Time |
++------------+----------+----------+--------------+
+| CSC2201   | 3        | 2        | 1            |
+| CSC3401   | 2        | 3        | 2            |
+| CSC1103   | 1        | 1        | 3            |
++------------+----------+----------+--------------+
+
+========================================
+   FCFS (First Come First Serve)
+========================================
+
+Scheduling Order: CSC2201 -> CSC3401 -> CSC1103
+
++------------+----------+------------+---------------+----------------+
+| Course Code| Duration | Completion | Waiting Time  | Turnaround Time|
++------------+----------+------------+---------------+----------------+
+| CSC2201   | 3        | 3          | 0             | 3              |
+| CSC3401   | 2        | 5          | 3             | 5              |
+| CSC1103   | 1        | 6          | 5             | 6              |
++------------+----------+------------+---------------+----------------+
+
+Average Waiting Time: 2.67 hours
+Average Turnaround Time: 4.67 hours
+
+========================================
+   SJF (Shortest Job First - Non-Preemptive)
+========================================
+
+Scheduling Order: CSC1103 -> CSC3401 -> CSC2201
+
++------------+----------+------------+---------------+----------------+
+| Course Code| Duration | Completion | Waiting Time  | Turnaround Time|
++------------+----------+------------+---------------+----------------+
+| CSC1103   | 1        | 1          | 0             | 1              |
+| CSC3401   | 2        | 3          | 1             | 3              |
+| CSC2201   | 3        | 6          | 3             | 6              |
++------------+----------+------------+---------------+----------------+
+
+Average Waiting Time: 1.33 hours
+Average Turnaround Time: 3.33 hours
+
+============================================
+   COMPARISON SUMMARY
+============================================
+
+FCFS Order: CSC2201 -> CSC3401 -> CSC1103
+SJF Order:  CSC1103 -> CSC3401 -> CSC2201
+
+SJF provides better average waiting time by
+scheduling shorter classes first, reducing
+overall wait for all courses.
