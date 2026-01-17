@@ -1,11 +1,3 @@
-/*
- * CPU Scheduling Algorithms for Class Scheduling
- * Implements FCFS (First Come First Serve) and SJF (Shortest Job First - Non-Preemptive)
- * 
- * Note: Round-Robin and SRTF are preemptive algorithms and cannot be used
- * for class scheduling since classes cannot be interrupted.
- */
-
 #include <iostream>
 #include <algorithm>
 #include <iomanip>
@@ -184,15 +176,6 @@ int main() {
     
     // Run SJF Algorithm
     SJF(proc, n);
-    
-    cout << "\n============================================" << endl;
-    cout << "   COMPARISON SUMMARY" << endl;
-    cout << "============================================" << endl;
-    cout << "\nFCFS Order: CSC2201 -> CSC3401 -> CSC1103" << endl;
-    cout << "SJF Order:  CSC1103 -> CSC3401 -> CSC2201" << endl;
-    cout << "\nSJF provides better average waiting time by" << endl;
-    cout << "scheduling shorter classes first, reducing" << endl;
-    cout << "overall wait for all courses." << endl;
     
     return 0;
 }
