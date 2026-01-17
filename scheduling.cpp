@@ -31,13 +31,11 @@ void FCFS(Process proc[], int n) {
     cout << "   FCFS (First Come First Serve)" << endl;
     cout << "========================================" << endl;
     
-    // Create a copy and sort by arrival time
     Process sorted[n];
     for (int i = 0; i < n; i++) {
         sorted[i] = proc[i];
     }
     
-    // Sort by arrival time (FCFS considers arrival order)
     for (int i = 0; i < n - 1; i++) {
         for (int j = 0; j < n - i - 1; j++) {
             if (sorted[j].arrival_time > sorted[j + 1].arrival_time) {
@@ -94,13 +92,11 @@ void SJF(Process proc[], int n) {
     cout << "   SJF (Shortest Job First - Non-Preemptive)" << endl;
     cout << "========================================" << endl;
     
-    // Create a copy and sort by duration (shortest first)
     Process sorted[n];
     for (int i = 0; i < n; i++) {
         sorted[i] = proc[i];
     }
     
-    // Sort by duration (SJF schedules shortest jobs first)
     for (int i = 0; i < n - 1; i++) {
         for (int j = 0; j < n - i - 1; j++) {
             if (sorted[j].duration > sorted[j + 1].duration) {
