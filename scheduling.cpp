@@ -11,7 +11,6 @@ struct Process {
     int arrival_time;   // preferred arrival time
 };
 
-// Function to display process details
 void displayProcesses(Process proc[], int n) {
     cout << "\n+------------+----------+----------+--------------+" << endl;
     cout << "| Course Code| Duration | Priority | Arrival Time |" << endl;
