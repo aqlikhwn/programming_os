@@ -1,0 +1,36 @@
+1. Algorithm Selection
+We choose SJF-non-preemptive for comparison with FCFS because class scheduling operates on a non-preemptive basis where once a class begin, it cannot be interrupted. SJF is designed to reduce the average waiting time in batch system by prioritizing the completion of the shortest tasks in the queue.
+
+2. Input Data
+- CSC2201: Duration 3h, Arrival Time 1
+- CSC3401: Duration 2h, Arrival Time 2
+- CSC1103: Duration 1h, Arrival Time 3
+
+3. Output
+
+a) FCFS
+Scheduling Order: CSC2201 -> CSC3401 -> CSC1103
++------------+----------+------------+---------------+----------------+
+| Course Code| Duration | Completion | Waiting Time  | Turnaround Time|
++------------+----------+------------+---------------+----------------+
+| CSC2201    | 3        | 3          | 0             | 3              |
+| CSC3401    | 2        | 5          | 3             | 5              |
+| CSC1103    | 1        | 6          | 5             | 6              |
++------------+----------+------------+---------------+----------------+
+Average Waiting Time: 2.67 hours
+Average Turnaround Time: 4.67 hours
+
+b) SJF
+Scheduling Order: CSC1103 -> CSC3401 -> CSC2201
++------------+----------+------------+---------------+----------------+
+| Course Code| Duration | Completion | Waiting Time  | Turnaround Time|
++------------+----------+------------+---------------+----------------+
+| CSC1103    | 1        | 1          | 0             | 1              |
+| CSC3401    | 2        | 3          | 1             | 3              |
+| CSC2201    | 3        | 6          | 3             | 6              |
++------------+----------+------------+---------------+----------------+
+Average Waiting Time: 1.33 hours
+Average Turnaround Time: 3.33 hours
+
+4. Conclusion
+From the result obtained, SJF algorithm has better performance compared to FCFS for class scheduling. By prioritizing shorter classes, SJF achieves a to reduce the average waiting time and have lower average turnaround time which enable more courses to be completed earlier. In contrast, while FCFS is simple and fair, it results in longer waiting times when longer classes are scheduled first. Therefore, SJF is more effective scheduling algorithm for this class scheduling, where pre-emption is not allowed.
