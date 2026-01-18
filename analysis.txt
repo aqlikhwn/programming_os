@@ -1,36 +1,113 @@
-1. Algorithm Selection
-We choose SJF-non-preemptive for comparison with FCFS because class scheduling operates on a non-preemptive basis where once a class begin, it cannot be interrupted. SJF is designed to reduce the average waiting time in batch system by prioritizing the completion of the shortest tasks in the queue.
+================================================================================
+                    CLASS SCHEDULING ALGORITHM ANALYSIS
+================================================================================
 
-2. Input Data
-- CSC2201: Duration 3h, Arrival Time 1
-- CSC3401: Duration 2h, Arrival Time 2
-- CSC1103: Duration 1h, Arrival Time 3
+1. ALGORITHM SELECTION
+--------------------------------------------------------------------------------
+   We chose SJF (Shortest Job First - Non-Preemptive) for comparison with FCFS 
+   because class scheduling operates on a non-preemptive basis - once a class 
+   begins, it cannot be interrupted.
 
-3. Output
+   Available Algorithms:
+   +------------------+-------------+--------------+
+   | Algorithm        | Type        | Usable?      |
+   +------------------+-------------+--------------+
+   | Round-Robin      | Preemptive  | NO           |
+   | SRTF             | Preemptive  | NO           |
+   | SJF              | Non-Preempt | YES          |
+   | Priority         | Non-Preempt | YES          |
+   | FCFS             | Non-Preempt | YES          |
+   +------------------+-------------+--------------+
 
-a) FCFS
-Scheduling Order: CSC2201 -> CSC3401 -> CSC1103
-+------------+----------+------------+---------------+----------------+
-| Course Code| Duration | Completion | Waiting Time  | Turnaround Time|
-+------------+----------+------------+---------------+----------------+
-| CSC2201    | 3        | 3          | 0             | 3              |
-| CSC3401    | 2        | 5          | 3             | 5              |
-| CSC1103    | 1        | 6          | 5             | 6              |
-+------------+----------+------------+---------------+----------------+
-Average Waiting Time: 2.67 hours
-Average Turnaround Time: 4.67 hours
+   SJF is designed to reduce average waiting time by prioritizing the 
+   completion of shorter tasks first.
 
-b) SJF
-Scheduling Order: CSC1103 -> CSC3401 -> CSC2201
-+------------+----------+------------+---------------+----------------+
-| Course Code| Duration | Completion | Waiting Time  | Turnaround Time|
-+------------+----------+------------+---------------+----------------+
-| CSC1103    | 1        | 1          | 0             | 1              |
-| CSC3401    | 2        | 3          | 1             | 3              |
-| CSC2201    | 3        | 6          | 3             | 6              |
-+------------+----------+------------+---------------+----------------+
-Average Waiting Time: 1.33 hours
-Average Turnaround Time: 3.33 hours
 
-4. Conclusion
-From the result obtained, SJF algorithm has better performance compared to FCFS for class scheduling. By prioritizing shorter classes, SJF achieves a to reduce the average waiting time and have lower average turnaround time which enable more courses to be completed earlier. In contrast, while FCFS is simple and fair, it results in longer waiting times when longer classes are scheduled first. Therefore, SJF is more effective scheduling algorithm for this class scheduling, where pre-emption is not allowed.
+2. INPUT DATA
+--------------------------------------------------------------------------------
+   The following courses were used for testing:
+
+   +-------------+----------------+----------+--------------+
+   | Course Code | Duration (hrs) | Priority | Arrival Time |
+   +-------------+----------------+----------+--------------+
+   | CSC2201     | 3              | 2        | 1            |
+   | CSC3401     | 2              | 3        | 2            |
+   | CSC1103     | 1              | 1        | 3            |
+   +-------------+----------------+----------+--------------+
+
+
+3. OUTPUT RESULTS
+--------------------------------------------------------------------------------
+
+   a) FCFS (First Come First Serve)
+   ---------------------------------
+   Scheduling Order: CSC2201 -> CSC3401 -> CSC1103
+
+   +-------------+----------+------------+--------------+-----------------+
+   | Course Code | Duration | Completion | Waiting Time | Turnaround Time |
+   +-------------+----------+------------+--------------+-----------------+
+   | CSC2201     | 3        | 3          | 0            | 3               |
+   | CSC3401     | 2        | 5          | 3            | 5               |
+   | CSC1103     | 1        | 6          | 5            | 6               |
+   +-------------+----------+------------+--------------+-----------------+
+
+   Average Waiting Time:    2.67 hours
+   Average Turnaround Time: 4.67 hours
+
+
+   b) SJF (Shortest Job First - Non-Preemptive)
+   ---------------------------------------------
+   Scheduling Order: CSC1103 -> CSC3401 -> CSC2201
+
+   +-------------+----------+------------+--------------+-----------------+
+   | Course Code | Duration | Completion | Waiting Time | Turnaround Time |
+   +-------------+----------+------------+--------------+-----------------+
+   | CSC1103     | 1        | 1          | 0            | 1               |
+   | CSC3401     | 2        | 3          | 1            | 3               |
+   | CSC2201     | 3        | 6          | 3            | 6               |
+   +-------------+----------+------------+--------------+-----------------+
+
+   Average Waiting Time:    1.33 hours
+   Average Turnaround Time: 3.33 hours
+
+
+4. COMPARISON SUMMARY
+--------------------------------------------------------------------------------
+
+   +---------------------+------------+------------+-------------+
+   | Metric              | FCFS       | SJF        | Improvement |
+   +---------------------+------------+------------+-------------+
+   | Avg Waiting Time    | 2.67 hours | 1.33 hours | 50% better  |
+   | Avg Turnaround Time | 4.67 hours | 3.33 hours | 29% better  |
+   +---------------------+------------+------------+-------------+
+
+
+5. CONCLUSION
+--------------------------------------------------------------------------------
+   From the results obtained, the SJF algorithm has better performance compared 
+   to FCFS for class scheduling:
+
+   WHY SJF IS BETTER:
+   - Minimizes average waiting time (1.33 hrs vs 2.67 hrs)
+   - Lower average turnaround time (3.33 hrs vs 4.67 hrs)
+   - By prioritizing shorter classes, more courses complete earlier
+   - Students waiting for shorter classes don't wait behind long ones
+
+   WHY NOT OTHER ALGORITHMS:
+   - Round-Robin: Preemptive - cannot interrupt classes
+   - SRTF: Preemptive - would require stopping a class mid-lecture
+   - Priority: Valid option, but may cause longer waits if high-priority 
+               courses have long durations
+
+   WHY FCFS IS LESS EFFICIENT:
+   - Simple and fair, but results in longer waiting times
+   - Long classes scheduled first delay all subsequent classes
+
+   FINAL RECOMMENDATION:
+   SJF (Non-Preemptive) is the recommended algorithm for class scheduling 
+   because it significantly reduces average waiting time while respecting 
+   the constraint that classes cannot be interrupted.
+
+================================================================================
+                              END OF ANALYSIS
+================================================================================
